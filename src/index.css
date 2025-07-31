@@ -1,0 +1,164 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to top, #80f0ffa5, #8e4dffbf, #ff00d96e);
+  overflow: hidden;
+  color: #fff;
+  height: 100vh;
+  position: relative;
+}
+
+.app {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.8rem;
+  margin-bottom: 30px;
+}
+
+.search-box {
+  margin-bottom: 25px;
+}
+
+input {
+  padding: 12px;
+  font-size: 1.2rem;
+  width: 240px;
+  border: none;
+  border-radius: 8px;
+}
+
+button {
+  padding: 12px 18px;
+  margin-left: 12px;
+  font-size: 1.2rem;
+  border: none;
+  background: #ffffff22;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+} 
+.main-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 40px;
+  margin: 0 auto 40px;
+  max-width: 550px;
+  font-size: 1.5rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.593);
+}
+.small-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 12px;
+  width: 120px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.main-card .temp {
+  font-size: 3.2rem;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.main-card .weather {
+  font-size: 2rem;
+  margin: 15px 0;
+}
+
+.forecast-row {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.small-card:hover {
+  transform: translateY(-5px);
+}
+
+.small-card p {
+  margin: 8px 0;
+}
+
+/* Sun Animation */
+.sun {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, #ffeb3b, #fbc02d);
+  border-radius: 50%;
+  animation: pulse 4s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.05); }
+}
+
+/* Mountains */
+.mountains {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 250px;
+  background: linear-gradient(to top, #4e342e, transparent);
+  clip-path: polygon(
+    0% 100%, 10% 80%, 20% 100%, 30% 85%, 40% 100%,
+    50% 80%, 60% 100%, 70% 90%, 80% 100%, 90% 85%, 100% 100%
+  );
+  z-index: 0;
+}
+
+/* Clouds */
+.cloud {
+  position: absolute;
+  top: 15%;
+  left: -150px;
+  width: 120px;
+  height: 60px;
+  background: #fff;
+  border-radius: 60px;
+  opacity: 0.5;
+  animation: moveClouds 20s linear infinite;
+  z-index: 0;
+}
+
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  background: #fff;
+  border-radius: 60px;
+}
+
+.cloud::before {
+  width: 60px;
+  height: 60px;
+  top: -30px;
+  left: 10px;
+}
+
+.cloud::after {
+  width: 90px;
+  height: 90px;
+  top: -40px;
+  left: 50px;
+}
+
+@keyframes moveClouds {
+  0% { left: -150px; }
+  100% { left: 100vw; }
+}
