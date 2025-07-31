@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './index.css';
 import Forecast from './Forecast';
 
-
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 function App() {
@@ -29,9 +28,11 @@ function App() {
     }
   };
 
+  // Fetch once on initial load; suppress ESLint warning
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     fetchForecast();
-  });
+  }, []);
 
   return (
     <>
